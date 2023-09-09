@@ -1,0 +1,41 @@
+<div class="flex absolute top-0 left-0 cursor-pointer " routerLink="/">
+  <img class="w-[15rem] p-3" src="../../../assets/logo.png"  />
+</div>
+<div  class="grid place-content-center h-[100vh]">
+    <div class="flex border border-gray-400 p-8 rounded-lg bg-slate-100   flex-col gap-y-3   ">
+      <span class="font-semibold text-[1.7rem]">Create an account</span>
+      <span class="text-[0.9rem] text-gray-600 font-extralight "
+        >Enter your email and password below to continue</span
+      >
+      <div class="flex flex-col gap-y-2">
+        <div class="flex flex-col gap-y-1">
+          <label class="font-semibold">Username</label>
+          <input [(ngModel)]="username" autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="morgan" />
+        </div>
+        <div class="flex flex-col gap-y-1">
+          <label class="font-semibold">Email</label>
+          <input [(ngModel)]="email" autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="email" placeholder="exemple@example" />
+        </div>
+        <div class="flex flex-col gap-y-1">
+          <label class="font-semibold">Password</label>
+          <input [(ngModel)]="password" class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400  rounded-lg focus:outline-green-700  focus:outline " type="password" placeholder="**********" />
+        </div>
+        <button (click)="register()"  class="active:scale-[0.98] self-end   text-[0.9rem] font-light text-white bg-[#013d29] pt-2 pb-2 pr-5 pl-5 rounded-lg " type="submit">Sign up</button>
+      </div>
+      <div>
+        <div class="flex flex-col gap-y-1">
+          <span class="font-medium text-neutral-700 underline hover:cursor-pointer text-[0.8rem]">Forgot your password?</span>
+      <span class="font-normal text-[0.9rem]">You already have an account? <span [routerLink]="'/login'" class=" font-medium hover:cursor-pointer">Sign in</span>  </span>
+        </div>
+      </div>
+      <div class=" flex items-center mt-2">
+          <hr class="flex-grow border-gray-300">
+          <div class="mx-4 text-gray-500">OR CONTINUE WITH</div>
+          <hr class="flex-grow border-gray-300">
+        </div>
+        <div class="flex flex-col gap-y-2">
+          <button class="flex items-center active:scale-[0.99] gap-x-2 font-medium justify-center p-2 rounded-lg border-neutral-800 border"> <img class="w-5 h-5 object-contain " src="../../assets/google.png" alt="google icon" /> Continue With Google</button>
+          <button class="flex items-center active:scale-[0.99] bg-neutral-900 text-white gap-x-2 font-medium justify-center p-2 rounded-lg border-neutral-800 border"> <img class="object-contain w-7 h-7  " src="../../assets/apple.png" alt="google icon" /> Continue With Apple</button>
+        </div>
+    </div>
+  </div>

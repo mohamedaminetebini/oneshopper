@@ -1,0 +1,217 @@
+<header class="bg-[#013d29] hidden md:flex items-center  font-light text-white flex-wrap justify-between p-1">
+  <div class="flex flex-wrap gap-x-2 items-center  font-extralight ml-[5.5rem]">
+      <span  class="material-icons text-white text-[1.1rem]  ">
+          phone
+          </span>
+          +216 24248961
+  </div>
+  <div class="flex gap-x-2 items-center flex-wrap  ">
+  <span class="">
+      Get 50% Off On Selected Products
+  </span>
+  |
+  <span>
+      Shop Now
+  </span>
+  </div>
+  <div class="flex gap-x-2 flex-wrap mr-[5rem]">
+      <label for="lang">Eng</label>
+  <select  name="lang" class="bg-transparent">
+     <option></option>
+  </select>
+  <label  for="location">Location</label>
+  <select name="location" class="bg-transparent">
+      <option></option>
+   </select>
+  </div>
+  
+  </header>
+<app-navbar></app-navbar>
+<main class="pl-[5rem] pr-[5rem] mt-8 flex gap-x-8">
+  <div class="flex-[2] flex flex-col gap-y-5">
+    <div class="border flex flex-col border-gray-300 p-5 rounded-xl">
+      <span class="font-semibold text-[1.5rem]">
+        Review Item And Shipping
+      </span>
+
+      <ng-container *ngFor="let item of items">
+        <div class="flex mt-4 gap-x-4">
+          <img
+            src="../../../assets/airpods.png"
+            class="w-[8rem] bg-[#ebebeb] rounded-xl p-2"
+          />
+          <div class="flex flex-col justify-center w-[100%]">
+            <div class="flex justify-between font-bold text-lg">
+              <span>{{ item.name }}</span>
+              <span>{{ item.price | currency : "DT" : "symbol" }}</span>
+            </div>
+            <div class="flex justify-between font-normal text-gray-500">
+              <span>Color : Pink</span>
+              <span class="font-medium">Quantity : {{ item.quantity }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="self-end font-semibold text-lg">
+        Total : {{ getTotal() }} DT
+      </div>
+    </div>
+    <div class="border border-gray-300 p-5 rounded-xl">
+      <div class="flex justify-between items-center">
+        <span class="font-semibold text-[1.5rem]"> Delivery Information </span>
+        <button
+          class="bg-[#ebebeb] active:scale-[0.98] font-medium shadow-sm pt-2 pb-2 pr-5 pl-5 rounded-xl"
+        >
+          Edit Information
+        </button>
+      </div>
+      <section class="flex gap-x-10 mt-4">
+        <div class="flex flex-col gap-y-5 text-[0.95rem] font-semibold">
+          <span> Name : </span>
+          <span> Adress : </span>
+          <span> City : </span>
+          <span> Zip Code : </span>
+          <span> Mobile : </span>
+          <span> Email : </span>
+        </div>
+        <div
+          class="flex gap-y-5 flex-col text-[0.95rem] font-medium text-gray-400"
+        >
+          <span> Mohamed Amine Tebini </span>
+          <span> 28 Rue Turquie Douar Hicher Mannouba </span>
+          <span> Mannouba </span>
+          <span> 2086 </span>
+          <span> +216 24248961 </span>
+          <span> Tebbinimohamed@me.com </span>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div
+    class="flex-1 flex flex-col divide-y border-gray-300 border rounded-xl p-5 self-stretch"
+  >
+    <span class="font-semibold text-[1.5rem] mt-2"> Order Summary </span>
+    <section class="mt-5 flex justify-center h-[5rem] items-center">
+      <div
+        class="w-[75%] bg-[#ebebeb] h-[3.2rem] flex relative items-center rounded-3xl"
+      >
+        <input
+          placeholder="Enter Coupon Code"
+          class="bg-transparent w-[55%] focus:outline-none p-3"
+        />
+        <button
+          class="absolute right-5 bg-[#013d29] text-white pr-5 active:scale-[0.98] pl-5 pt-2 rounded-2xl pb-2"
+        >
+          Apply coupon
+        </button>
+      </div>
+    </section>
+    <span class="font-semibold text-[1.2rem] p-2 pt-5"> Payment Details </span>
+    <section class="flex pt-5 mt-1 font-medium flex-col gap-y-4 text-[0.9rem]">
+      <div class="flex gap-x-3 items-center">
+        <input
+          type="radio"
+          name="method"
+          value="cash"
+          [(ngModel)]="selectedOption"
+          (ngModelChange)="onOptionChange($event)"
+        />
+        <label for="">Cash on Delivery</label>
+      </div>
+      <div class="flex gap-x-3 items-center">
+        <input
+          type="radio"
+          name="method"
+          value="shopcard"
+          [(ngModel)]="selectedOption"
+          (ngModelChange)="onOptionChange($event)"
+        />
+        <label for="">Shop Card</label>
+      </div>
+      <div class="flex gap-x-3 items-center">
+        <input
+          type="radio"
+          name="method"
+          value="paypal"
+          [(ngModel)]="selectedOption"
+          (ngModelChange)="onOptionChange($event)"
+        />
+        <label for="">Paypal</label>
+      </div>
+      <div class="flex gap-x-3 items-center">
+        <input
+          type="radio"
+          name="option"
+          value="credit"
+          [(ngModel)]="selectedOption"
+          (ngModelChange)="onOptionChange($event)"
+        />
+        <label for="">Credit or Debit Card</label>
+      </div>
+    </section>
+    <div
+      
+
+      *ngIf="selectedOption == 'credit'"
+      class="mt-4 flex flex-col p-3 gap-y-3"
+    >
+     
+      <section class="flex flex-col gap-y-1">
+        <label class="font-medium text-[0.9rem]">Card Name Holder*</label>
+        <input
+          [(ngModel)]="cardHolder"
+          type="text"
+          placeholder="type Name"
+          class="w-full border border-gray-300 p-3 rounded-xl"
+          required
+        />
+      </section>
+      <section class="flex flex-col gap-y-1">
+        <label class="font-medium text-[0.9rem]">Card Number*</label>
+        <input
+          [(ngModel)]="cardNumber"
+          type="text"
+          placeholder="type Here"
+          class="w-full border border-gray-300 p-3 rounded-xl"
+          required
+        />
+      </section>
+      <section class="flex gap-x-5">
+        <div class="flex flex-col gap-y-2">
+          <label class="font-medium text-[0.9rem]">Expiry Date*</label>
+          <input
+            [(ngModel)]="expiryDate"
+            type="text"
+            placeholder="mm/yy"
+            class="w-full border border-gray-300 p-3 rounded-xl"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-y-2">
+          <label class="font-medium text-[0.9rem]">Cvv*</label>
+          <input
+            [(ngModel)]="cvv"
+            type="text"
+            placeholder="type Cvv"
+            class="w-full border border-gray-300 p-3 rounded-xl"
+            required
+          />
+        </div>
+      </section>
+
+      <div class="flex gap-x-8 mt-3 font-medium justify-end">
+        <button
+          class="bg-white w-full text-[#013d29] border border-[#013d29] p-2 active:scale-[0.98] rounded-xl"
+        >
+          Cancel
+        </button>
+        <button 
+          (click)="onSubmit()"
+          class="bg-[#013d29] w-full text-white p-2 active:scale-[0.98] rounded-xl"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

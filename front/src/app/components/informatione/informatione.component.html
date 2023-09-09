@@ -1,0 +1,45 @@
+<div class="flex absolute top-0 left-0 cursor-pointer " routerLink="/">
+   <img class="w-[15rem] p-3" src="../../../assets/logo.png"  />
+ </div>
+<div class="grid place-content-center  h-[100vh]">
+   <div class="flex border border-gray-400 p-8 rounded-lg bg-slate-100 flex-col gap-y-2">
+      <span class="text-2xl font-semibold tracking-wider ">Shipping Information</span>
+      <div class="flex gap-x-6 ">
+
+         <div class="flex flex-col gap-y-2">
+            <label>First Name</label>
+            <input [(ngModel)]="firstName"  autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="First Name" />
+         </div>
+         <div class="flex flex-col gap-y-2">
+            <label>Last Name</label>
+            <input [(ngModel)]="lastName"  autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="Last Name" />
+         </div>
+
+      </div>
+      <div class="flex flex-col gap-y-2">
+         <label>Phone</label>
+         <input [(ngModel)]="phoneNumber"  autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="Last Name" />
+      </div>
+      <div class="flex flex-col gap-y-2">
+         <label>Address </label>
+         <input [(ngModel)]="address"    autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="Address" />
+      </div>
+      <div class="flex flex-col gap-y-2">
+         <label>Country</label>
+         <input [(ngModel)]="country"  autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="Country" />
+      </div>
+      <div class="flex flex-col gap-y-2">
+         <label>City</label>
+         <input [(ngModel)]="city"  autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="City" />
+      </div>
+      <div class="flex flex-col gap-y-2">
+         <label>State</label>
+         <input [(ngModel)]="state"  autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="State" />
+      </div>
+      <div class="flex flex-col gap-y-2">
+         <label>Zip Code</label>
+         <input [(ngModel)]="zipCode"  autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="Zip Code" />
+      </div>
+      <button (click)="handleSave()" class="bg-[#013d29] active:scale-[0.98] font-medium tracking-wider text-white p-2 self-end w-[10rem]   rounded-lg">Save</button>
+   </div>
+  </div>

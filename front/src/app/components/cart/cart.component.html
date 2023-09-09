@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<main class="pl-[8rem] pr-[8rem]  mt-16" *ngIf="getCart().length>0;else noResults">
+ 
+<div class="flex flex-col gap-y-2">
+    <ng-container *ngFor="let product of getCart() "  >
+        <app-product [product]="product"></app-product>
+        
+            </ng-container>
+</div>
+   <div class="flex flex-col pr-[5.4rem]  justify-end gap-y-3 mt-[2rem]">
+    <div class="self-end" >
+        <span class="font-semibold text-[1rem]">
+            Total Price : 
+        </span>
+        <span class="font-semibold text-[1.1rem] "> 
+            {{getTotal() | currency:'DT':'symbol'}}
+        </span>
+    </div>
+    <button routerLink="/checkout" class="bg-[#013d29] self-end text-white p-3  active:scale-[0.98]  rounded-2xl ">Procced To Checkout </button>
+   </div>
+
+
+</main>
+<ng-template #noResults>
+   <main class="pl-[5rem] pr-[5rem] mt-5 gap-y-6 grid place-content-center">
+    
+    <img class="w-[25rem]" loading="lazy" src="../../../assets/empty.png" alt="no item" />
+    <span class="text-[1.5rem] text-center font-semibold text-[#013d29] ">Your Cart Is Empty</span>
+    <button routerLink="/" class="bg-[#013d29]  text-white p-3  active:scale-[0.98]  rounded-2xl ">Shop Now </button>
+</main>
+    
+</ng-template>

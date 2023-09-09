@@ -1,0 +1,40 @@
+
+<div class="  "> 
+    <div class="flex items-center justify-evenly">
+     <section>
+         <div class="flex items-center gap-x-8 ">
+             <img class="w-[7rem] h-[7rem] bg-[#ebedec] p-2 rounded-xl object-contain " src="../../../assets/airpods.png">
+             <span class="text-lg font-semibold tracking-widest">
+                {{product.name}}
+             </span>
+             
+         </div>
+     </section>
+     <section>
+         <div class="flex items-center " >
+             <ng-container *ngFor="let star of stars">
+             <mat-icon  inline="true" style="font-size: 1.3rem;"  class="text-[#0aac0c]  text-[1.7rem]">star</mat-icon>
+          </ng-container>
+           <span class="text-[0.7rem] ml-1">
+             (120)
+           </span>
+       </div>
+     </section>
+     <span class="text-base font-semibold">
+         {{newprice | currency:'DT':'symbol'}}
+     </span> 
+     <section class="flex items-center gap-x-3"> 
+        <button (click)="decrement() " class="bg-[#013d29] text-white pr-4 active:scale-[0.98] pl-4 pt-2 rounded-2xl pb-2">-</button>
+        <span>
+            {{product.quantity}}
+        </span>
+        <button (click)="increment()" class="bg-[#013d29] text-white pr-4 active:scale-[0.98] pl-4 pt-2 rounded-2xl pb-2">+</button>
+    </section>
+
+    <span (click)="removeFromCart()" class="material-icons text-red-600 border p-1 rounded-xl active:scale-[0.98] cursor-pointer  ring-1 ring-red-300 ">
+        delete
+        </span>
+</div>
+
+
+</div>

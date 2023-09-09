@@ -1,0 +1,16 @@
+.effect::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    background: #08402d;
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+    
+}
+.effect:hover::before{
+    transform: scaleX(1);
+}

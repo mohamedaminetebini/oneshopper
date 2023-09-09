@@ -1,0 +1,67 @@
+<header class="bg-[#013d29] hidden md:flex items-center  font-light text-white flex-wrap justify-between p-1">
+  <div class="flex flex-wrap gap-x-2 items-center  font-extralight ml-[5.5rem]">
+      <span  class="material-icons text-white text-[1.1rem]  ">
+          phone
+          </span>
+          +216 24248961
+  </div>
+  <div class="flex gap-x-2 items-center flex-wrap  ">
+  <span class="">
+      Get 50% Off On Selected Products
+  </span>
+  |
+  <span>
+      Shop Now
+  </span>
+  </div>
+  <div class="flex gap-x-2 flex-wrap mr-[5rem]">
+      <label for="lang">Eng</label>
+  <select  name="lang" class="bg-transparent">
+     <option></option>
+  </select>
+  <label  for="location">Location</label>
+  <select name="location" class="bg-transparent">
+      <option></option>
+   </select>
+  </div>
+  
+  </header>
+<app-navbar></app-navbar>
+<main class="pl-[8rem] pr-[8rem]">
+    <div class="bg-[#fcf0e4] relative rounded-lg  mt-4 text-[#013d29] text-5xl font-bold h-[22rem]">
+      <span class="absolute top-[25%] left-[5%]">
+        Grap Upto 50% Off On <br> Selected Products
+      </span>  
+      <button class="active:scale-[0.98]  drop-shadow-lg shadow-green-800 text-base font-light text-white bg-[#013d29] p-2 rounded-3xl absolute top-[60%] text-center pr-6 pl-6 left-[5%] ">Buy Now</button>
+      <img src="../../../assets/bags.png" class="mix-blend-darken absolute top-3 right-6 h-[95%] object-contain "  alt="bags"/>
+    </div>
+    <section class=" flex  mt-[2rem] ">
+   
+    </section>
+    <section class="mt-[1rem]">
+      <div class="text-2xl font-bold  tracking-wider">
+        Popular Categories
+       </div>
+       <div class=" grid grid-cols-2 gap-x-5 gap-y-2 mt-5">
+        <ng-container *ngFor="let category of categories ">
+          <app-popular-cat [name]="category.name" [image]="category.img" ></app-popular-cat>
+        </ng-container>
+       
+      </div>
+     </section>
+    <section class="mt-[2rem]">
+      <div class="text-2xl font-bold  tracking-wider">
+       Popular Products
+      </div>
+        <div class="grid grid-cols-3 gap-y-5  gap-x-5 mt-5 w-full">
+         <ng-container *ngFor="let product of Data ">
+          <app-popular [product]="product" ></app-popular>
+
+         </ng-container>
+        </div>
+       
+   
+   </section>
+
+</main>
+<app-footer></app-footer>

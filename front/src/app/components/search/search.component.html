@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<main class="pl-[8rem] flex flex-col  gap-y-10 pr-[8rem] mt-11" *ngIf="filtredData.length>0;else noResults">
+    <div class="w-full flex justify-between items-center ">
+        <span id="search" class="font-medium tracking-widest text-2xl">Search for : {{query}}</span>
+        <select (click)="chnageFilter($event)"  class=" font-medium text-center p-2 pl-5 pr-5 border-2 rounded-2xl focus:outline-green-500 border-green-500 ">
+            <option value="Min Price" selected>Min Price</option>
+            <option value="Max Price">Max Price</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A"> Z-A</option>
+        </select>
+
+    </div>
+    <div class="flex gap-x-10">
+    <div class="flex-1 p-5 flex flex-col gap-y-4  bg-[#f6f6f6] border border-gray-300     rounded-md ">
+       <div class="flex flex-col gap-y-2 self-stretch">
+        <label class="font-semibold text-[0.9rem] text-neutral-600">Price Range</label>
+        <section class="flex font-semibold text-gray-500 justify-between">
+            <span>0</span>
+            <span class="tracking-widest">{{priceRange | currency:'DT'}}</span>
+        </section>
+        <input   type="range" min="0" max="10000" [(ngModel)]="priceRange" (ngModelChange)="onPriceRangeChange($event)"  />
+       </div>
+       <div class="flex flex-col gap-y-2">
+        <label class="font-semibold text-[0.9rem] text-neutral-600">Marque</label>
+        <div class="flex gap-2 font-medium text-gray-800">
+            <input type="checkbox" value="samsung"> 
+            <label>Samsung</label>
+            
+        </div>
+        <div class="flex gap-2 font-medium text-gray-800">
+            <input type="checkbox" value="samsung"> 
+            <label>Samsung</label>
+            
+        </div>
+        <div class="flex gap-2 font-medium text-gray-800">
+            <input type="checkbox" value="samsung"> 
+            <label>Samsung</label>
+            
+        </div>
+        <div class="flex gap-2 font-medium text-gray-800">
+            <input type="checkbox" value="samsung"> 
+            <label>Samsung</label>
+            
+        </div>
+        
+       </div>
+    </div>
+    <div class="flex-[4] flex flex-col gap-y-10" >
+        
+        <div class="grid grid-cols-3  gap-5  " *ngIf="this.filtredData.length>0">
+         
+                <ng-container *ngFor="let product of Data ">
+                    <app-popular [product]="product" ></app-popular>
+                
+                   </ng-container>
+    
+           </div>
+    </div>
+</div>
+</main>
+
+<ng-template #noResults>
+    <div  class="flex flex-col gap-y-4 items-center mt-14">
+        
+    <img loading="lazy" draggable="false" class="w-[18rem] " src="../../../assets/basket.png" alt="no item found">
+        <span class="text-xl font-semibold">No Item Found.</span>
+    </div>
+  </ng-template>

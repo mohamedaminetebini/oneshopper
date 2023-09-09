@@ -1,0 +1,35 @@
+<div class="  flex-col flex gap-y-2 group/item   w-[1fr] relative ">
+  <div routerLink="/product/{{product.id}}" class="hover:cursor-pointer  flex flex-col gap-y-2">
+   <img  class="  bg-[#f6f6f6] group-hover/item:scale-[1.05] p-3 transition-scale duration-200 rounded-xl h-[15rem] object-contain mix-blend-multiply  w-[100%] " src={{product.image}} />
+   <div class="font-semibold mt-2 flex  items-center justify-between text-[0.99rem] text-neutral-700" >
+      <div >
+         {{product.name}}
+      </div>
+      <div id="price" class="relative mr-5 ">
+         
+         {{product.price | currency:'DT'}}
+      </div>
+   </div>
+   <span class="font-medium text-[0.8rem] text-neutral-600">
+      {{product.description}}
+   </span>
+   <div class="flex items-center " >
+      <ng-container *ngFor="let star of stars">
+         <mat-icon  inline="true" style="font-size: 1.3rem;"  class="text-[#0aac0c]  text-[1.7rem]">star</mat-icon>
+      </ng-container>
+    <span class="text-[0.7rem] ml-1">
+      (120)
+    </span>
+</div>
+  </div>
+   
+<button (click)="addToCart()" class="self-start text-neutral-700 mt-1 font-medium  active:scale-[0.98] shadow-sm rounded-2xl border-2 pt-2 pb-2 pl-7 pr-7 border-[#0aac0d]">
+   Add To Cart
+</button>
+<div (click)="changeType()" class="absolute z-10 top-2 text-[#0aac0c] bg-white w-[2.3rem] h-[2.3rem] rounded-full hover:cursor-pointer shadow-sm right-2">
+   <span class="material-icons absolute z-20 top-[25%] right-[25%] text-[1.2rem]">
+     {{ type }}
+   </span>
+ </div>
+
+</div>

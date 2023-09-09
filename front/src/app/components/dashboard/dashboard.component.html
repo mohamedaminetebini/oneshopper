@@ -1,0 +1,71 @@
+<nav class="flex items-center justify-between p-3">
+<img routerLink="/" class="w-[15rem] hover:cursor-pointer " src="../../../assets/logo.png" />
+<div class="flex gap-x-5">
+    <div class="flex items-center gap-x-1 hover:font-medium hover:cursor-pointer">
+        <span class="material-icons  text-[1.5rem]">
+            person
+        </span>{{username}}
+        
+    </div>
+    <div (click)="logout()" class="flex items-center gap-x-1 hover:font-medium hover:cursor-pointer">
+        <span class="material-icons">
+            logout
+            </span>Logout
+    </div>
+</div>
+</nav>
+<main class="m-5">
+<div class="flex justify-between">
+    <span class="text-[1.3rem] font-bold tracking-widest ">List of Products </span>
+    <button class="bg-[#013d29] text-white p-2 active:scale-[0.98] rounded-xl " (click)="isOpen=true">Add Proudct</button>
+</div>
+<table  class="w-full mt-5">
+    <tr class="text-center"> 
+        <th class=" p-3">Image</th>
+        <th class=" p-3">Name</th>
+        <th class=" p-3">Price</th>
+        <th class=" p-3">Action</th>
+    </tr>
+    <tr class="text-center p-2" *ngFor="let product of products">
+        <td class="flex justify-center" ><img class="w-[5rem]  p-2 rounded-xl bg-slate-200" [src]="product.image" /></td>
+        <td>{{product.name}}</td>
+        <td>{{product.price | currency:'DT':'symbol'}}</td>
+        <td><button class="bg-[#013d29] text-white p-2 active:scale-[0.98] rounded-xl " (click)="delete(product)">Delete</button></td>
+    </tr>
+
+
+
+
+</table>
+<div *ngIf="isOpen"  class="absolute grid place-content-center  backdrop-blur-sm inset-0 z-[100]">
+   
+    <div class="flex border border-gray-400 w-[25rem]  p-8 rounded-lg bg-slate-100 flex-col gap-y-2">
+        <div class="flex justify-between items-center ">
+            <span class="text-2xl font-semibold tracking-wider ">Add Product</span>
+            <span (click)="isOpen=false" class=" hover:cursor-pointer material-icons">
+                close
+                </span>
+        </div>
+        
+  
+           <div class="flex flex-col gap-y-2">
+              <label>Product Name</label>
+              <input [(ngModel)]="name"   autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="product name" />
+           </div>
+           <div class="flex flex-col gap-y-2">
+              <label>Product Description</label>
+              <input [(ngModel)]="description" autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="product description" />
+           </div>
+  
+        <div class="flex flex-col gap-y-2">
+            <label>Price</label>
+            <input [(ngModel)]="price" autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="price" />
+         </div>
+         <div class="flex flex-col gap-y-2">
+            <label>Quantity</label>
+            <input [(ngModel)]="quantity" autofocus class=" p-2 border border-neutral-600 placeholder:font-medium placeholder:text-gray-400 rounded-lg focus:outline-green-700  focus:outline " type="text" placeholder="quantity" />
+         </div>
+        <button (click)="save()"  class="bg-[#013d29] active:scale-[0.98] font-medium tracking-wider text-white p-2 self-end w-[10rem]   rounded-lg">Save</button>
+     </div>
+</div>
+</main>
